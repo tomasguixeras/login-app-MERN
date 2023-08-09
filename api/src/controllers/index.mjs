@@ -1,6 +1,20 @@
 import firebaseAdmin from "../config/firebaseConfig.mjs"
 import User from "../models/user.mjs"
 
+export const getUserByMail = async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    const user = await User.findOne({ email })
+
+    if(user){
+      return res.status(200).json(user);
+    }
+  } catch (error) {
+    return res.status(500).json({ error: "Server error. Please try again" });
+  }
+}
+
 export const createUser = async (req, res) => {
   const { email, name, password, image } = req.body;
 
@@ -28,9 +42,4 @@ export const createUser = async (req, res) => {
     }
     return res.status(500).json({ error: "Server error. Please try again" });
   }
-}
-
-
-export const loginUser = async (req, res) => {
-
 }
