@@ -1,4 +1,3 @@
-// Realizar configuracion Firebase
 import admin from "firebase-admin";
 import dotenv from "dotenv";
 

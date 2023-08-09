@@ -1,6 +1,3 @@
-// Archivo principal
-// Definir aplicacion de Express, middelwares, config Rutas y arrancar Servidor
-
 import express from "express";
 import mongoose from "mongoose";
 import cors from"cors";
